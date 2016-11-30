@@ -11,7 +11,7 @@
     "start": "ember server",
     "test": "ember try:each"
   },
-  "repository": "",
+  "repository": "https://github.com/this-dot/ember-background-video.git",
   "engines": {
     "node": ">= 0.12.0"
   },
@@ -37,14 +37,17 @@
     "ember-export-application-global": "^1.0.5",
     "ember-load-initializers": "^0.5.1",
     "ember-resolver": "^2.0.3",
-    "ember-welcome-page": "^1.0.3",
     "loader.js": "^4.0.10"
   },
   "keywords": [
     "ember-addon"
   ],
   "dependencies": {
-    "ember-cli-babel": "^5.1.7"
+    "broccoli-funnel": "1.0.9",
+    "broccoli-merge-trees": "1.1.5",
+    "ember-cli-babel": "^5.1.7",
+    "ember-cli-htmlbars": "1.1.1",
+    "jquery-background-video": "1.0.0"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"

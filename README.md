@@ -1,6 +1,21 @@
-# Ember-background-video
+# ember-background-video
 
-This README outlines the details of collaborating on this Ember addon.
+This addon makes it easy to use [jquery-background-video](https://github.com/BGStock/jquery-background-video) plugin in an Ember application.
+
+## Use
+
+```hbs
+{{#background-video
+  mp4="demo.mp4"
+  webm="demo.webm"
+  ogv="demo.ogv"
+  poster="demo.jpg"
+}}
+
+  // content goes here
+
+{{/background-video}}
+```
 
 ## Installation
 

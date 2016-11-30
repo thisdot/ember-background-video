@@ -1,0 +1,1 @@
+export { default } from 'ember-background-video/components/background-video';

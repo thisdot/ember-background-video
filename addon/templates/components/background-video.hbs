@@ -1,0 +1,7 @@
+<video class="jquery-background-video" loop autoplay muted poster={{poster}}>
+    {{#if mp4}}<source src="{{mp4}}" type="video/mp4">{{/if}}
+    {{#if webm}}<source src="{{webm}}" type="video/webm">{{/if}}
+    {{#if ogv}}<source src="{{ogv}}" type="video/ogg">{{/if}}
+</video>
+
+<div class="ember-background-video--content">{{yield}}</div>
