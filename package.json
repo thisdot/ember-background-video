@@ -1,6 +1,6 @@
 {
   "name": "ember-background-video",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Ember Addon provides a component that shows a video as a background of an element.",
   "directories": {
     "doc": "doc",
