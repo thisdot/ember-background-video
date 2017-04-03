@@ -1,7 +1,7 @@
 {
   "name": "ember-background-video",
   "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Ember Addon provides a component that shows a video as a background of an element.",
   "directories": {
     "doc": "doc",
     "test": "tests"
