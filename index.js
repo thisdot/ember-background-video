@@ -2,9 +2,12 @@
 'use strict';
 
 var path = require('path');
-var dirname = path.dirname;
+
 var mergeTrees = require('broccoli-merge-trees');
 var Funnel = require('broccoli-funnel');
+var map = require('broccoli-stew').map;
+
+var dirname = path.dirname;
 
 module.exports = {
   name: 'ember-background-video',
@@ -18,16 +21,24 @@ module.exports = {
 
     var jbv = dirname(require.resolve('jquery-background-video'));
 
-    var jbvTree = new Funnel(this.treeGenerator(jbv), {
+    var jbvJsTree = new Funnel(this.treeGenerator(jbv), {
       srcDir: '/',
       files: [
         'jquery.background-video.js',
-        'jquery.background-video.css'
       ],
       destDir: 'jquery-background-video'
     });
-
-    trees.push(jbvTree);
+    var jbvCssTree = new Funnel(this.treeGenerator(jbv), {
+      srcDir: '/',
+      files: [
+        'jquery.background-video.css',
+      ],
+      destDir: 'jquery-background-video'
+    });
+    jbvJsTree = map(jbvJsTree,
+        (content) => `if (typeof FastBoot === 'undefined') { ${content} }`);
+    trees.push(jbvJsTree);
+    trees.push(jbvCssTree);
 
     return mergeTrees(trees);
   },
@@ -39,9 +50,6 @@ module.exports = {
     this.app = app;
 
     app.import('vendor/jquery-background-video/jquery.background-video.css');
-
-    if (!process.env.EMBER_CLI_FASTBOOT) {
-      app.import('vendor/jquery-background-video/jquery.background-video.js');
-    }
+    app.import('vendor/jquery-background-video/jquery.background-video.js');
   }
 };
